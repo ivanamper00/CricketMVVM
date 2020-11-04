@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/games_teams_background_top"
+            android:orientation="horizontal"
+            android:paddingHorizontal="40dp">
+
+            <ImageView
+                android:id="@+id/match_details_home_logo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginVertical="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/match_details_home_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text=""
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/match_details_linear"
+            android:background="@drawable/match_details_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="5dp"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="5dp">
+
+            <TextView
+                android:id="@+id/match_details_batting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="Batting Team:" />
+
+            <TextView
+                android:id="@+id/match_details_home_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Home Score:" />
+
+            <TextView
+                android:id="@+id/match_details_home_overs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Home Overs:" />
+
+            <TextView
+                android:id="@+id/match_details_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Game Summary:" />
+
+            <TextView
+                android:id="@+id/match_details_away_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Away Score:" />
+
+            <TextView
+                android:id="@+id/match_details_away_overs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Away Overs:" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/games_teams_background_bottom"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:paddingHorizontal="40dp">
+
+            <ImageView
+                android:id="@+id/match_details_away_logo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginVertical="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/match_details_away_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
