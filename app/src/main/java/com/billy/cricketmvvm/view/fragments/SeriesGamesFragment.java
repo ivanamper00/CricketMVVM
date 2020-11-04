@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.billy.cricketmvvm.R;
@@ -89,6 +90,7 @@ public class SeriesGamesFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.series_games_recycler);
         relativeLayout = view.findViewById(R.id.relative_loading);
+
         relativeLayout.setVisibility(View.VISIBLE);
         seriesGamesViewModel = ViewModelProviders.of(this).get(SeriesGamesViewModel.class);
         seriesGamesViewModel.init();

@@ -30,13 +30,10 @@ import com.billy.cricketmvvm.view.fragments.SeriesGamesFragment;
 import com.billy.cricketmvvm.viewmodels.SeriesGamesViewModel;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.billy.cricketmvvm.repositories.Presets.nullable;
 
@@ -138,6 +135,10 @@ public class SeriesGamesAdapter extends RecyclerView.Adapter<SeriesGamesAdapter.
         ImageView awayLogo = dialog.findViewById(R.id.match_details_away_logo);
         ProgressBar progressBar = dialog.findViewById(R.id.progress_loading);
         LinearLayout linearLayout = dialog.findViewById(R.id.match_details_linear);
+        LinearLayout homeDetails = dialog.findViewById(R.id.home_team_details);
+        LinearLayout awayDetails = dialog.findViewById(R.id.away_team_details);
+        homeDetails.setVisibility(View.INVISIBLE);
+        awayDetails.setVisibility(View.INVISIBLE);
         cricketApi.getMatchDetails(Presets.seriesId,Presets.matchId).enqueue(new Callback<MatchDetailsModel>() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -160,6 +161,8 @@ public class SeriesGamesAdapter extends RecyclerView.Adapter<SeriesGamesAdapter.
                 Picasso.get().load(list.getAwayTeam().getLogoUrl()).into(awayLogo);
                 progressBar.setVisibility(View.GONE);
                 linearLayout.setVisibility(View.VISIBLE);
+                homeDetails.setVisibility(View.VISIBLE);
+                awayDetails.setVisibility(View.VISIBLE);
             }
             @Override
             public void onFailure(Call<MatchDetailsModel> call, Throwable t) {

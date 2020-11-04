@@ -93,6 +93,7 @@ public class SeriesFragment extends Fragment {
             }
         });
 
+
         initRecyclerView();
 
         return view;
