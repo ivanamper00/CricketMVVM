@@ -2,6 +2,7 @@ package com.billy.cricketmvvm.view.fragments;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -81,11 +82,13 @@ public class SeriesFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.series_recycler);
         relativeLayout = view.findViewById(R.id.relative_loading);
+
         seriesViewModel = ViewModelProviders.of(this).get(SeriesViewModel.class);
         seriesViewModel.init();
         relativeLayout.setVisibility(View.VISIBLE);
 
         seriesViewModel.getSeries().observe(this, result -> {
+
             seriesListModels.addAll(result);
             adapter.notifyDataSetChanged();
             if(adapter != null){

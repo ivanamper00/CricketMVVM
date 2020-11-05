@@ -90,10 +90,21 @@ public class SeriesGamesAdapter extends RecyclerView.Adapter<SeriesGamesAdapter.
         holder.gameDate.setText(match.getStartDateTime().substring(0,10));
 
         holder.homeTeam.setText(match.getHomeTeam().getName());
-        Picasso.get().load(match.getHomeTeam().getLogoUrl()).into(holder.homeLogo);
+
+        if(match.getHomeTeam().getLogoUrl() != null){
+            Picasso.get().load(match.getHomeTeam().getLogoUrl()).into(holder.homeLogo);
+        }else{
+            holder.homeLogo.setImageResource(R.drawable.no_image);
+        }
 
         holder.awayTeam.setText(match.getAwayTeam().getName());
-        Picasso.get().load(match.getAwayTeam().getLogoUrl()).into(holder.awayLogo);
+
+        if(match.getAwayTeam().getLogoUrl() != null){
+            Picasso.get().load(match.getAwayTeam().getLogoUrl()).into(holder.awayLogo);
+        }else{
+            holder.awayLogo.setImageResource(R.drawable.no_image);
+        }
+
 
 
         if(!match.getStatus().equalsIgnoreCase("UPCOMING")){

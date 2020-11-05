@@ -13,9 +13,13 @@
         android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".view.activities.MainActivity"></activity>
-        <activity android:name=".view.activities.TeamDetailsActivity" />
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".view.activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activities.TeamDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,7 @@ package com.billy.cricketmvvm.view.fragments;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -74,6 +75,8 @@ public class UpcomingFragment extends Fragment {
     private RelativeLayout relativeLayout;
     private SeriesGamesAdapter adapter;
     List<MatchListModel> seriesUpcomingMatchList = new ArrayList<>();
+    private CardView noData;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,14 +86,19 @@ public class UpcomingFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.series_upcoming_recycler);
         relativeLayout = view.findViewById(R.id.relative_loading);
+        noData = view.findViewById(R.id.card_no_data);
         relativeLayout.setVisibility(View.VISIBLE);
         seriesUpcomingViewModel.init(Presets.seriesId);
+        noData.setVisibility(View.GONE);
 
         seriesUpcomingViewModel.getSeriesUpcoming().observe(this, result -> {
             seriesUpcomingMatchList.addAll(result);
             adapter.notifyDataSetChanged();
             if(adapter != null){
                 relativeLayout.setVisibility(View.GONE);
+            }
+            if(result.size() == 0){
+                noData.setVisibility(View.VISIBLE);
             }
         });
 

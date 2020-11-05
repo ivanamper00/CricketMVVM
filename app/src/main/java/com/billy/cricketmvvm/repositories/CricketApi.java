@@ -54,4 +54,5 @@ public interface CricketApi {
             "useQueryString: true"})
     @GET("match.php")
     Call<MatchDetailsModel> getMatchDetails(@Query("seriesid") String seriesid, @Query("matchid") String matchid);
+
 }

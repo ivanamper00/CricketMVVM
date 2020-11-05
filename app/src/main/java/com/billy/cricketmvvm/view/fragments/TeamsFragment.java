@@ -2,6 +2,7 @@ package com.billy.cricketmvvm.view.fragments;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -76,6 +77,7 @@ public class TeamsFragment extends Fragment {
     private TeamsViewModel teamsViewModel;
     private List<TeamsListModel> teamsList = new ArrayList<>();
     private TeamsAdapter adapter;
+    private CardView noData;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,15 +86,20 @@ public class TeamsFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.series_teams_recycler);
         relativeLayout = view.findViewById(R.id.relative_loading);
+        noData = view.findViewById(R.id.card_no_data);
         teamsViewModel = ViewModelProviders.of(this).get(TeamsViewModel.class);
         teamsViewModel.init(Presets.seriesId);
         relativeLayout.setVisibility(View.VISIBLE);
+        noData.setVisibility(View.GONE);
 
         teamsViewModel.getSeries().observe(this, result -> {
             teamsList.addAll(result);
             adapter.notifyDataSetChanged();
-            if (adapter != null) {
+            if(adapter != null){
                 relativeLayout.setVisibility(View.GONE);
+            }
+            if(result.size() == 0){
+                noData.setVisibility(View.VISIBLE);
             }
         });
 

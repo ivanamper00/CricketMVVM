@@ -56,27 +56,25 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center"
-                android:weightSum="1">
+                android:gravity="center">
                 <TextView
                     android:id="@+id/games_home_name"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:layout_margin="5dp"
-                    android:text=""
-                    android:layout_weight=".5"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/games_home_score"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
                     android:layout_gravity="center"
-                    android:text=""
-                    android:layout_weight=".5"/>
+                    android:text=""/>
             </LinearLayout>
         </LinearLayout>
 
@@ -99,26 +97,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="center"
-                android:weightSum="1">
+                android:gravity="center"
+                android:layout_gravity="center">
                 <TextView
                     android:id="@+id/games_away_name"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_margin="5dp"
-                    android:text=""
-                    android:layout_weight=".5"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/games_away_score"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:layout_margin="5dp"
                     android:layout_gravity="center"
-                    android:text=""
-                    android:layout_weight=".5"/>
+                    android:text=""/>
             </LinearLayout>
 
         </LinearLayout>
