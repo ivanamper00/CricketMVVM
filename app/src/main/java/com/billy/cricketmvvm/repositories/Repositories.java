@@ -50,7 +50,10 @@ public class Repositories {
         cricketApi.getSeries().enqueue(new Callback<SeriesModel>() {
             @Override
             public void onResponse(Call<SeriesModel> call, retrofit2.Response<SeriesModel> response) {
-                data.setValue(response.body().getSeriesList().getSeries());
+                if(response.body() != null){
+                    data.setValue(response.body().getSeriesList().getSeries());
+                }
+
             }
             @Override
             public void onFailure(Call<SeriesModel> call, Throwable t) {
@@ -97,8 +100,10 @@ public class Repositories {
                         filteredList.add(list.get(i));
                     }
                 }
+                if(filteredList.size() > 0){
+                    data.setValue(filteredList);
+                }
 
-                data.setValue(filteredList);
             }
             @Override
             public void onFailure(Call<GamesModel> call, Throwable t) {
@@ -121,7 +126,10 @@ public class Repositories {
                         filteredList.add(list.get(i));
                     }
                 }
-                data.setValue(filteredList);
+                if(filteredList.size() > 0){
+                    data.setValue(filteredList);
+                }
+
             }
             @Override
             public void onFailure(Call<GamesModel> call, Throwable t) {
@@ -138,7 +146,10 @@ public class Repositories {
             @Override
             public void onResponse(Call<PlayersModel> call, retrofit2.Response<PlayersModel> response) {
                 List<PlayerDetailsModel> teamPlayerList = response.body().getTeamPlayers().getPlayers();
+                if(teamPlayerList.size() > 0){
                     data.setValue(teamPlayerList);
+                }
+
             }
             @Override
             public void onFailure(Call<PlayersModel> call, Throwable t) {
@@ -156,7 +167,9 @@ public class Repositories {
             @Override
             public void onResponse(Call<StandingsModel> call, retrofit2.Response<StandingsModel> response) {
                 List<TeamStandingModel> teamStanding = response.body().getTeams();
-                data.setValue(teamStanding);
+                if(teamStanding.size() > 0) {
+                    data.setValue(teamStanding);
+                }
             }
             @Override
             public void onFailure(Call<StandingsModel> call, Throwable t) {

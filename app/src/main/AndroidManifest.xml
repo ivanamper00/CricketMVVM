@@ -3,11 +3,14 @@
     package="com.billy.cricketmvvm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/app_logo"
+        android:networkSecurityConfig="@xml/network_config"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@drawable/app_logo"

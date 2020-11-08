@@ -6,6 +6,6 @@ public class Presets {
     public static String matchId = "49296";
 
     public static String nullable(String string){
-        return string == null? "N/A" : string;
+        return string == null ?  "N/A" : string.equals("") ? "N/A" : string;
     }
 }

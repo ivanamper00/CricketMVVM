@@ -2,6 +2,7 @@ package com.billy.cricketmvvm.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.billy.cricketmvvm.repositories.Presets.nullable;
 
 public class TeamPlayersAdapter extends CardSliderAdapter<TeamPlayersAdapter.TeamPlayersViewHolder> {
     Context context;
@@ -54,11 +57,11 @@ public class TeamPlayersAdapter extends CardSliderAdapter<TeamPlayersAdapter.Tea
     @Override
     public void bindVH(TeamPlayersViewHolder holder, int position) {
         seriesTeamPlayers = seriesTeamPlayerList.get(position);
-
         holder.playerName.setText(seriesTeamPlayers.getFullName());
-        holder.playerBatting.setText("Batting: "+seriesTeamPlayers.getBattingStyle());
-        holder.playerBowling.setText("Bowling: "+seriesTeamPlayers.getBowlingStyle());
-        holder.playerType.setText("Player Type: "+seriesTeamPlayers.getPlayerType());
+        holder.playerBatting.setText("Batting: "+ nullable(seriesTeamPlayers.getBattingStyle()));
+        holder.playerBowling.setText("Bowling: "+ nullable(seriesTeamPlayers.getBowlingStyle()));
+        holder.playerType.setText("Player Type: "+ nullable(seriesTeamPlayers.getPlayerType()));
+
         if(seriesTeamPlayers.getImageURL() != null){
             Picasso.get().load(seriesTeamPlayers.getImageURL()).into(holder.playerImage, new Callback.EmptyCallback() {
                 @Override public void onSuccess() {

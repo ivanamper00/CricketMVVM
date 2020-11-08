@@ -43,6 +43,7 @@ public class TeamDetailsActivity extends AppCompatActivity {
     TextView teamLost;
     TextView teamPoints;
     ImageView teamLogo;
+    TeamPlayersAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class TeamDetailsActivity extends AppCompatActivity {
         teamLost = findViewById(R.id.team_lost);
         teamPoints = findViewById(R.id.team_points);
         teamLogo = findViewById(R.id.team_logo);
+
     }
 
 
@@ -69,7 +71,7 @@ public class TeamDetailsActivity extends AppCompatActivity {
     public void getData(){
         teamViewModel.getTeamPlayers().observe(this, result -> {
             seriesTeamPlayers.addAll(result);
-            cardSliderViewPager.setAdapter(new TeamPlayersAdapter(this,seriesTeamPlayers));
+            adapter.notifyDataSetChanged();
         });
         teamViewModel.getTeam().observe(this, result -> {
             team.addAll(result);
@@ -88,6 +90,8 @@ public class TeamDetailsActivity extends AppCompatActivity {
             }
 
         });
+        adapter = new TeamPlayersAdapter(this,seriesTeamPlayers);
+        cardSliderViewPager.setAdapter(adapter);
     }
 
 }
