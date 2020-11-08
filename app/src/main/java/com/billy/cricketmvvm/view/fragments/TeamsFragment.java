@@ -88,7 +88,7 @@ public class TeamsFragment extends Fragment {
         relativeLayout = view.findViewById(R.id.relative_loading);
         noData = view.findViewById(R.id.card_no_data);
         teamsViewModel = ViewModelProviders.of(this).get(TeamsViewModel.class);
-        teamsViewModel.init(Presets.seriesId);
+        teamsViewModel.init(getContext());
         relativeLayout.setVisibility(View.VISIBLE);
         noData.setVisibility(View.GONE);
 

@@ -96,7 +96,7 @@ public class SeriesGamesFragment extends Fragment {
         noData.setVisibility(View.GONE);
         relativeLayout.setVisibility(View.VISIBLE);
         seriesGamesViewModel = ViewModelProviders.of(this).get(SeriesGamesViewModel.class);
-        seriesGamesViewModel.init();
+        seriesGamesViewModel.init(getContext());
 
         seriesGamesViewModel.getSeriesGames().observe(this, result -> {
             seriesMatchList.addAll(result);

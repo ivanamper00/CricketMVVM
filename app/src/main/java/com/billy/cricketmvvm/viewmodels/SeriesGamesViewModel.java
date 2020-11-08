@@ -1,5 +1,7 @@
 package com.billy.cricketmvvm.viewmodels;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -16,12 +18,11 @@ public class SeriesGamesViewModel extends ViewModel {
     private MutableLiveData<List<MatchListModel>> seriesGames;
     private Repositories repositories;
 
-
-    public void init(){
+    public void init(Context context){
         if(seriesGames != null){
             return;
         }
-        repositories = Repositories.getInstance();
+        repositories = Repositories.getInstance(context);
         seriesGames = repositories.getSeriesGames(Presets.seriesId);
 //        matchDetails = repositories.getMatchDetails(Presets.seriesId,Presets.matchId);
     }

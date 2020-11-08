@@ -88,7 +88,7 @@ public class UpcomingFragment extends Fragment {
         relativeLayout = view.findViewById(R.id.relative_loading);
         noData = view.findViewById(R.id.card_no_data);
         relativeLayout.setVisibility(View.VISIBLE);
-        seriesUpcomingViewModel.init(Presets.seriesId);
+        seriesUpcomingViewModel.init(getContext());
         noData.setVisibility(View.GONE);
 
         seriesUpcomingViewModel.getSeriesUpcoming().observe(this, result -> {

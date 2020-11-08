@@ -1,5 +1,7 @@
 package com.billy.cricketmvvm.viewmodels;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -14,12 +16,12 @@ public class SeriesUpcomingViewModel extends ViewModel {
     private Repositories repositories;
 
 
-    public void init(String id){
+    public void init(Context context){
         if(seriesUpcoming != null){
             return;
         }
-        repositories = Repositories.getInstance();
-        seriesUpcoming = repositories.getFilteredUpcoming(id);
+        repositories = Repositories.getInstance(context);
+        seriesUpcoming = repositories.getFilteredUpcoming();
     }
 
     public LiveData<List<MatchListModel>> getSeriesUpcoming(){

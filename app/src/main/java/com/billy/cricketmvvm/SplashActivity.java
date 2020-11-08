@@ -25,14 +25,14 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                YQCUtils.splashAction(SplashActivity.this, new SplashLietener() {
-                    @Override
-                    public void startMySplash(int version, String downUrl) {
+//                YQCUtils.splashAction(SplashActivity.this, new SplashLietener() {
+//                    @Override
+//                    public void startMySplash(int version, String downUrl) {
                         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-                    }
-                });
+//                    }
+//                });
             }
         }.start();
 

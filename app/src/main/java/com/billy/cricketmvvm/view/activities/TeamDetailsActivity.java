@@ -51,7 +51,7 @@ public class TeamDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_team_details);
         cardSliderViewPager = findViewById(R.id.team_player_card_slider);
         teamViewModel = ViewModelProviders.of(this).get(TeamViewModel.class);
-        teamViewModel.init();
+        teamViewModel.init(this);
         declaration();
         getData();
 

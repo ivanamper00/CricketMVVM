@@ -84,7 +84,7 @@ public class SeriesFragment extends Fragment {
         relativeLayout = view.findViewById(R.id.relative_loading);
 
         seriesViewModel = ViewModelProviders.of(this).get(SeriesViewModel.class);
-        seriesViewModel.init();
+        seriesViewModel.init(getContext());
         relativeLayout.setVisibility(View.VISIBLE);
 
         seriesViewModel.getSeries().observe(this, result -> {

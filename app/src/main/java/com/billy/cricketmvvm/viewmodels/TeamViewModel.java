@@ -1,5 +1,7 @@
 package com.billy.cricketmvvm.viewmodels;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -19,13 +21,13 @@ public class TeamViewModel extends ViewModel {
     private Repositories repositories;
 
 
-    public void init(){
+    public void init(Context context){
         if(seriesTeamPlayers != null){
             return;
         }
-        repositories = Repositories.getInstance();
-        seriesTeamPlayers = repositories.getTeamPlayers(Presets.teamId);
-        seriesTeams = repositories.getTeamStandings(Presets.seriesId);
+        repositories = Repositories.getInstance(context);
+        seriesTeamPlayers = repositories.getTeamPlayers();
+        seriesTeams = repositories.getTeamStandings();
     }
 
     public LiveData<List<PlayerDetailsModel>> getTeamPlayers(){

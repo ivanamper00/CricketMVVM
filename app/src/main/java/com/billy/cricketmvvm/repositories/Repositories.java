@@ -1,6 +1,8 @@
 package com.billy.cricketmvvm.repositories;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -33,16 +35,18 @@ public class Repositories {
 
     private static Repositories instance;
     private CricketApi cricketApi;
+    Context context;
 
-    public static Repositories getInstance(){
+    public static Repositories getInstance(Context context){
         if(instance == null){
-            instance = new Repositories();
+            instance = new Repositories(context);
         }
         return instance;
     }
 
-    public Repositories() {
+    public Repositories(Context context) {
         this.cricketApi = RetrofitService.createService(CricketApi.class);
+        this.context = context;
     }
 
     public MutableLiveData<List<SeriesListModel>> getSeries(){
@@ -63,9 +67,9 @@ public class Repositories {
         return data;
     }
 
-    public MutableLiveData<List<TeamsListModel>> getTeams(String series){
+    public MutableLiveData<List<TeamsListModel>> getTeams(){
         MutableLiveData<List<TeamsListModel>> data = new MutableLiveData<>();
-        cricketApi.getTeams(series).enqueue(new Callback<SeriesTeamModel>() {
+        cricketApi.getTeams(Presets.seriesId).enqueue(new Callback<SeriesTeamModel>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<SeriesTeamModel> call, retrofit2.Response<SeriesTeamModel> response) {
@@ -113,9 +117,9 @@ public class Repositories {
         return data;
     }
 
-    public  MutableLiveData<List<MatchListModel>> getFilteredUpcoming(String id) {
+    public  MutableLiveData<List<MatchListModel>> getFilteredUpcoming() {
         MutableLiveData<List<MatchListModel>> data = new MutableLiveData<>();
-        cricketApi.getSeriesGames(id).enqueue(new Callback<GamesModel>() {
+        cricketApi.getSeriesGames(Presets.seriesId).enqueue(new Callback<GamesModel>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<GamesModel> call, retrofit2.Response<GamesModel> response) {
@@ -139,16 +143,19 @@ public class Repositories {
         return data;
     }
 
-    public MutableLiveData<List<PlayerDetailsModel>> getTeamPlayers(String teamId){
+    public MutableLiveData<List<PlayerDetailsModel>> getTeamPlayers(){
         MutableLiveData<List<PlayerDetailsModel>> data = new MutableLiveData<>();
-        cricketApi.getTeamPlayers(teamId).enqueue(new Callback<PlayersModel>() {
+        cricketApi.getTeamPlayers(Presets.teamId).enqueue(new Callback<PlayersModel>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<PlayersModel> call, retrofit2.Response<PlayersModel> response) {
-                List<PlayerDetailsModel> teamPlayerList = response.body().getTeamPlayers().getPlayers();
-                if(teamPlayerList.size() > 0){
-                    data.setValue(teamPlayerList);
-                }
+
+                    try{
+                        List<PlayerDetailsModel> teamPlayerList = response.body().getTeamPlayers().getPlayers();
+                        data.setValue(teamPlayerList);
+                    }catch (Exception e){
+                        Toast.makeText(context, "No Player Data Available", Toast.LENGTH_SHORT).show();
+                    }
 
             }
             @Override
@@ -160,9 +167,9 @@ public class Repositories {
     }
 
 
-    public MutableLiveData<List<TeamStandingModel>> getTeamStandings(String seriesId){
+    public MutableLiveData<List<TeamStandingModel>> getTeamStandings(){
         MutableLiveData<List<TeamStandingModel>> data = new MutableLiveData<>();
-        cricketApi.getStandings(seriesId).enqueue(new Callback<StandingsModel>() {
+        cricketApi.getStandings(Presets.seriesId).enqueue(new Callback<StandingsModel>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<StandingsModel> call, retrofit2.Response<StandingsModel> response) {
