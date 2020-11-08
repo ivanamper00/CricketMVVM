@@ -14,12 +14,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.billy.cricketmvvm.R;
-import com.billy.cricketmvvm.adapters.SeriesAdapter;
 import com.billy.cricketmvvm.adapters.TeamsAdapter;
-import com.billy.cricketmvvm.models.series.SeriesListModel;
 import com.billy.cricketmvvm.models.teams.TeamsListModel;
-import com.billy.cricketmvvm.repositories.Presets;
-import com.billy.cricketmvvm.viewmodels.SeriesViewModel;
 import com.billy.cricketmvvm.viewmodels.TeamsViewModel;
 
 import java.util.ArrayList;

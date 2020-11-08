@@ -4,28 +4,19 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.billy.cricketmvvm.R;
-import com.billy.cricketmvvm.adapters.SeriesAdapter;
 import com.billy.cricketmvvm.adapters.SeriesGamesAdapter;
 import com.billy.cricketmvvm.models.games.MatchListModel;
-import com.billy.cricketmvvm.models.matches.MatchDetailsModel;
-import com.billy.cricketmvvm.models.series.SeriesListModel;
-import com.billy.cricketmvvm.repositories.Presets;
 import com.billy.cricketmvvm.viewmodels.SeriesGamesViewModel;
-import com.billy.cricketmvvm.viewmodels.SeriesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

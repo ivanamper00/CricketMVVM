@@ -16,8 +16,6 @@ import android.widget.RelativeLayout;
 import com.billy.cricketmvvm.R;
 import com.billy.cricketmvvm.adapters.SeriesGamesAdapter;
 import com.billy.cricketmvvm.models.games.MatchListModel;
-import com.billy.cricketmvvm.repositories.Presets;
-import com.billy.cricketmvvm.viewmodels.SeriesGamesViewModel;
 import com.billy.cricketmvvm.viewmodels.SeriesUpcomingViewModel;
 
 import java.util.ArrayList;
@@ -93,20 +91,17 @@ public class UpcomingFragment extends Fragment {
 
         seriesUpcomingViewModel.getSeriesUpcoming().observe(this, result -> {
             seriesUpcomingMatchList.addAll(result);
-            adapter.notifyDataSetChanged();
-            if(adapter != null){
+            if(seriesUpcomingMatchList.size() == 0){
+                noData.setVisibility(View.VISIBLE);
                 relativeLayout.setVisibility(View.GONE);
             }
-            if(result.size() == 0){
-                noData.setVisibility(View.VISIBLE);
-            }
+            adapter.notifyDataSetChanged();
         });
 
         initRecyclerView();
         return view;
     }
     private void initRecyclerView(){
-
         adapter = new SeriesGamesAdapter(getContext(), seriesUpcomingMatchList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);

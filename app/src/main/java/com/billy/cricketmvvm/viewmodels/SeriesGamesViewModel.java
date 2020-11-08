@@ -7,11 +7,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.billy.cricketmvvm.models.games.MatchListModel;
-import com.billy.cricketmvvm.models.matches.MatchDetailsModel;
 import com.billy.cricketmvvm.repositories.Presets;
 import com.billy.cricketmvvm.repositories.Repositories;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SeriesGamesViewModel extends ViewModel {
@@ -24,13 +22,9 @@ public class SeriesGamesViewModel extends ViewModel {
         }
         repositories = Repositories.getInstance(context);
         seriesGames = repositories.getSeriesGames(Presets.seriesId);
-//        matchDetails = repositories.getMatchDetails(Presets.seriesId,Presets.matchId);
     }
 
     public LiveData<List<MatchListModel>> getSeriesGames(){
         return seriesGames;
     }
-//    public LiveData<MatchDetailsModel.Match> getMatchDetails(){
-//        return matchDetails;
-//    }
 }

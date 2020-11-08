@@ -28,7 +28,4 @@ public class SeriesViewModel extends ViewModel {
         return seriesList;
     }
 
-    public void saveSeriesId(){
-
-    }
 }

@@ -2,29 +2,18 @@ package com.billy.cricketmvvm.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.billy.cricketmvvm.R;
-import com.billy.cricketmvvm.adapters.SeriesAdapter;
 import com.billy.cricketmvvm.adapters.TeamPlayersAdapter;
-import com.billy.cricketmvvm.adapters.TeamsAdapter;
 import com.billy.cricketmvvm.models.players.PlayerDetailsModel;
-import com.billy.cricketmvvm.models.series.SeriesListModel;
 import com.billy.cricketmvvm.models.standings.TeamStandingModel;
-import com.billy.cricketmvvm.models.teams.TeamsListModel;
 import com.billy.cricketmvvm.repositories.Presets;
-import com.billy.cricketmvvm.viewmodels.SeriesViewModel;
 import com.billy.cricketmvvm.viewmodels.TeamViewModel;
-import com.billy.cricketmvvm.viewmodels.TeamsViewModel;
 import com.github.islamkhsh.CardSliderViewPager;
 import com.squareup.picasso.Picasso;
 

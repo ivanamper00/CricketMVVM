@@ -1,11 +1,7 @@
 package com.billy.cricketmvvm.repositories;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -14,7 +10,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.billy.cricketmvvm.models.games.GamesModel;
 import com.billy.cricketmvvm.models.games.MatchListModel;
-import com.billy.cricketmvvm.models.matches.MatchDetailsModel;
 import com.billy.cricketmvvm.models.players.PlayerDetailsModel;
 import com.billy.cricketmvvm.models.players.PlayersModel;
 import com.billy.cricketmvvm.models.series.SeriesListModel;
@@ -23,7 +18,6 @@ import com.billy.cricketmvvm.models.standings.StandingsModel;
 import com.billy.cricketmvvm.models.standings.TeamStandingModel;
 import com.billy.cricketmvvm.models.teams.SeriesTeamModel;
 import com.billy.cricketmvvm.models.teams.TeamsListModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,7 +127,6 @@ public class Repositories {
                 if(filteredList.size() > 0){
                     data.setValue(filteredList);
                 }
-
             }
             @Override
             public void onFailure(Call<GamesModel> call, Throwable t) {
@@ -186,21 +179,4 @@ public class Repositories {
         return data;
     }
 
-
-//    public  MutableLiveData<MatchDetailsModel.Match> getMatchDetails(String seriesId, String matchId) {
-//        MutableLiveData<MatchDetailsModel.Match> data = new MutableLiveData<>();
-//        cricketApi.getMatchDetails(seriesId, matchId).enqueue(new Callback<MatchDetailsModel>() {
-//            @RequiresApi(api = Build.VERSION_CODES.N)
-//            @Override
-//            public void onResponse(Call<MatchDetailsModel> call, retrofit2.Response<MatchDetailsModel> response) {
-//                MatchDetailsModel.Match list = response.body().getMatch();
-//                data.setValue(list);
-//            }
-//            @Override
-//            public void onFailure(Call<MatchDetailsModel> call, Throwable t) {
-//                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + t.getMessage());
-//            }
-//        });
-//        return data;
-//    }
 }

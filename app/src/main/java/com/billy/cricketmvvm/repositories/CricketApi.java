@@ -16,7 +16,6 @@ import retrofit2.http.Query;
 public interface CricketApi {
 
     String BASE_URL =  "https://rapidapi.p.rapidapi.com/";
-//    String BASE_URL = "https://dev132-cricket-live-scores-v1.p.rapidapi.com/";
 
 
     @Headers({"x-rapidapi-host: dev132-cricket-live-scores-v1.p.rapidapi.com",

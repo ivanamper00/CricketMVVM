@@ -8,10 +8,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.billy.cricketmvvm.R;
-import com.billy.cricketmvvm.models.matches.MatchDetailsModel;
-import com.billy.cricketmvvm.repositories.CricketApi;
-import com.billy.cricketmvvm.repositories.Presets;
-import com.billy.cricketmvvm.repositories.RetrofitService;
 import com.billy.cricketmvvm.view.fragments.SeriesFragment;
 import com.billy.cricketmvvm.view.fragments.SeriesGamesFragment;
 import com.billy.cricketmvvm.view.fragments.TeamsFragment;
